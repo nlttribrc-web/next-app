@@ -4,8 +4,11 @@ import { PrismaClient } from "@/app/generated/prisma/client";
 
 const adapter = new PrismaMariaDb(
   {
-    host: "localhost",
-    port: 3306,
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE_NAME,
+    connectionLimit: 5,
   },
 )
 const globalForPrisma = global as unknown as { prisma: PrismaClient };

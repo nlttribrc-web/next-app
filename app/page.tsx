@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 import Image from 'next/image'
 import coffee from '@/public/images/coffee.jpg'
 import snow from '@/public/images/cld-sample-2.jpg'
@@ -7,17 +7,17 @@ import ProductCard from './components/ProductCard'
 import { getServerSession } from 'next-auth'
 import { authOptions } from './api/auth/[...nextauth]/route'
 import { Metadata } from 'next'
-import { useState } from 'react'
+// import { useState } from 'react'
 
-export default function Home() {
-  // const session = await getServerSession(authOptions);
+export default async function Home() {
+  const session = await getServerSession(authOptions);
   
   return (
     <main className='relative h-screen'>
-      <h1>Hello World</h1>
+      <h1>Hello { session && <span>{session.user!.name}</span>}</h1>
       <Link href="/user">Users</Link>
       <ProductCard/>
-      <button onClick={async () => {
+      {/* <button onClick={async () => {
         const _ = (await import('lodash')).default;
 
         const users = [
@@ -28,7 +28,7 @@ export default function Home() {
 
         const sorted = _.orderBy(users, ['name']);
         console.log(sorted)
-      }}>Show</button>
+      }}>Show</button> */}
       {/* <Image 
         src={snow} 
         alt='' 
