@@ -1,9 +1,11 @@
 import NextAuth, { NextAuthOptions } from "next-auth"
+import { NextRequest, NextResponse } from "next/server";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "@/prisma/client";
 import bcrypt from 'bcrypt';
+import { get } from "lodash";
 
 export const authOptions: NextAuthOptions = {
     // adapter: PrismaAdapter(prisma),
@@ -31,9 +33,19 @@ export const authOptions: NextAuthOptions = {
             //     return passwordMatch ? user : null;
             // }
             async authorize(credentials, req) {
-                const password = '12345'
                 if(!credentials?.email || !credentials.password) return null
-                const user = { id: "1", name: "John Doe", email: "johndoe@example.com", password: await bcrypt.hash(password, 10) }
+                // const user = { id: "1", name: "John Doe", email: "johndoe@example.com" }
+                
+                const res = await fetch("http://localhost:3000/api/register", {
+                    method: 'POST',
+                    body: JSON.stringify(credentials),
+                    headers: { "Content-Type": "application/json" }
+                });
+
+                const user = await res.json()
+                user.name = "Test"
+
+                console.log(user);
 
                 if (user) {
                     return user

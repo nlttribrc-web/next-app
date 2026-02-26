@@ -16,23 +16,23 @@ export async function POST(request: NextRequest) {
         return NextResponse.json(validation.error, {
             status: 400
         });
-    const user = await prisma.user.findUnique({ 
-        where: { email: body.email } 
-    });
+    // const user = await prisma.user.findUnique({ 
+    //     where: { email: body.email } 
+    // });
 
-    if (user) {
-        return NextResponse.json(
-            { error: 'Users already exists' }, { status: 400 }
-        );
-    }
+    // if (user) {
+    //     return NextResponse.json(
+    //         { error: 'Users already exists' }, { status: 400 }
+    //     );
+    // }
 
-    const hashedPassword = await bcrypt.hash(body.password, 10);
-    const newUser = await prisma.user.create({
-        data: {
-            email: body.email,
-            hashedPassword
-        }
-    });
+    // const hashedPassword = await bcrypt.hash(body.password, 10);
+    // const newUser = await prisma.user.create({
+    //     data: {
+    //         email: body.email,
+    //         hashedPassword
+    //     }
+    // });
 
-    return NextResponse.json({ email: newUser.email });
+    return NextResponse.json({ name: body.name, email: body.email });
 }
