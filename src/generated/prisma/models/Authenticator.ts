@@ -36,8 +36,8 @@ export type AuthenticatorSumAggregateOutputType = {
 
 export type AuthenticatorMinAggregateOutputType = {
   credentialID: string | null
-  userId: string | null
-  providerAccountId: string | null
+  user_id: string | null
+  provider_account_id: string | null
   credentialPublicKey: string | null
   counter: number | null
   credentialDeviceType: string | null
@@ -47,8 +47,8 @@ export type AuthenticatorMinAggregateOutputType = {
 
 export type AuthenticatorMaxAggregateOutputType = {
   credentialID: string | null
-  userId: string | null
-  providerAccountId: string | null
+  user_id: string | null
+  provider_account_id: string | null
   credentialPublicKey: string | null
   counter: number | null
   credentialDeviceType: string | null
@@ -58,8 +58,8 @@ export type AuthenticatorMaxAggregateOutputType = {
 
 export type AuthenticatorCountAggregateOutputType = {
   credentialID: number
-  userId: number
-  providerAccountId: number
+  user_id: number
+  provider_account_id: number
   credentialPublicKey: number
   counter: number
   credentialDeviceType: number
@@ -79,8 +79,8 @@ export type AuthenticatorSumAggregateInputType = {
 
 export type AuthenticatorMinAggregateInputType = {
   credentialID?: true
-  userId?: true
-  providerAccountId?: true
+  user_id?: true
+  provider_account_id?: true
   credentialPublicKey?: true
   counter?: true
   credentialDeviceType?: true
@@ -90,8 +90,8 @@ export type AuthenticatorMinAggregateInputType = {
 
 export type AuthenticatorMaxAggregateInputType = {
   credentialID?: true
-  userId?: true
-  providerAccountId?: true
+  user_id?: true
+  provider_account_id?: true
   credentialPublicKey?: true
   counter?: true
   credentialDeviceType?: true
@@ -101,8 +101,8 @@ export type AuthenticatorMaxAggregateInputType = {
 
 export type AuthenticatorCountAggregateInputType = {
   credentialID?: true
-  userId?: true
-  providerAccountId?: true
+  user_id?: true
+  provider_account_id?: true
   credentialPublicKey?: true
   counter?: true
   credentialDeviceType?: true
@@ -199,8 +199,8 @@ export type AuthenticatorGroupByArgs<ExtArgs extends runtime.Types.Extensions.In
 
 export type AuthenticatorGroupByOutputType = {
   credentialID: string
-  userId: string
-  providerAccountId: string
+  user_id: string
+  provider_account_id: string
   credentialPublicKey: string
   counter: number
   credentialDeviceType: string
@@ -233,49 +233,49 @@ export type AuthenticatorWhereInput = {
   OR?: Prisma.AuthenticatorWhereInput[]
   NOT?: Prisma.AuthenticatorWhereInput | Prisma.AuthenticatorWhereInput[]
   credentialID?: Prisma.StringFilter<"Authenticator"> | string
-  userId?: Prisma.StringFilter<"Authenticator"> | string
-  providerAccountId?: Prisma.StringFilter<"Authenticator"> | string
+  user_id?: Prisma.StringFilter<"Authenticator"> | string
+  provider_account_id?: Prisma.StringFilter<"Authenticator"> | string
   credentialPublicKey?: Prisma.StringFilter<"Authenticator"> | string
   counter?: Prisma.IntFilter<"Authenticator"> | number
   credentialDeviceType?: Prisma.StringFilter<"Authenticator"> | string
   credentialBackedUp?: Prisma.BoolFilter<"Authenticator"> | boolean
   transports?: Prisma.StringNullableFilter<"Authenticator"> | string | null
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  user?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.UsersWhereInput>
 }
 
 export type AuthenticatorOrderByWithRelationInput = {
   credentialID?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  providerAccountId?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
+  provider_account_id?: Prisma.SortOrder
   credentialPublicKey?: Prisma.SortOrder
   counter?: Prisma.SortOrder
   credentialDeviceType?: Prisma.SortOrder
   credentialBackedUp?: Prisma.SortOrder
   transports?: Prisma.SortOrderInput | Prisma.SortOrder
-  user?: Prisma.UserOrderByWithRelationInput
+  user?: Prisma.UsersOrderByWithRelationInput
   _relevance?: Prisma.AuthenticatorOrderByRelevanceInput
 }
 
 export type AuthenticatorWhereUniqueInput = Prisma.AtLeast<{
   credentialID?: string
-  userId_credentialID?: Prisma.AuthenticatorUserIdCredentialIDCompoundUniqueInput
+  user_id_credentialID?: Prisma.AuthenticatorUser_idCredentialIDCompoundUniqueInput
   AND?: Prisma.AuthenticatorWhereInput | Prisma.AuthenticatorWhereInput[]
   OR?: Prisma.AuthenticatorWhereInput[]
   NOT?: Prisma.AuthenticatorWhereInput | Prisma.AuthenticatorWhereInput[]
-  userId?: Prisma.StringFilter<"Authenticator"> | string
-  providerAccountId?: Prisma.StringFilter<"Authenticator"> | string
+  user_id?: Prisma.StringFilter<"Authenticator"> | string
+  provider_account_id?: Prisma.StringFilter<"Authenticator"> | string
   credentialPublicKey?: Prisma.StringFilter<"Authenticator"> | string
   counter?: Prisma.IntFilter<"Authenticator"> | number
   credentialDeviceType?: Prisma.StringFilter<"Authenticator"> | string
   credentialBackedUp?: Prisma.BoolFilter<"Authenticator"> | boolean
   transports?: Prisma.StringNullableFilter<"Authenticator"> | string | null
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-}, "userId_credentialID" | "credentialID">
+  user?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.UsersWhereInput>
+}, "user_id_credentialID" | "credentialID">
 
 export type AuthenticatorOrderByWithAggregationInput = {
   credentialID?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  providerAccountId?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
+  provider_account_id?: Prisma.SortOrder
   credentialPublicKey?: Prisma.SortOrder
   counter?: Prisma.SortOrder
   credentialDeviceType?: Prisma.SortOrder
@@ -293,8 +293,8 @@ export type AuthenticatorScalarWhereWithAggregatesInput = {
   OR?: Prisma.AuthenticatorScalarWhereWithAggregatesInput[]
   NOT?: Prisma.AuthenticatorScalarWhereWithAggregatesInput | Prisma.AuthenticatorScalarWhereWithAggregatesInput[]
   credentialID?: Prisma.StringWithAggregatesFilter<"Authenticator"> | string
-  userId?: Prisma.StringWithAggregatesFilter<"Authenticator"> | string
-  providerAccountId?: Prisma.StringWithAggregatesFilter<"Authenticator"> | string
+  user_id?: Prisma.StringWithAggregatesFilter<"Authenticator"> | string
+  provider_account_id?: Prisma.StringWithAggregatesFilter<"Authenticator"> | string
   credentialPublicKey?: Prisma.StringWithAggregatesFilter<"Authenticator"> | string
   counter?: Prisma.IntWithAggregatesFilter<"Authenticator"> | number
   credentialDeviceType?: Prisma.StringWithAggregatesFilter<"Authenticator"> | string
@@ -304,19 +304,19 @@ export type AuthenticatorScalarWhereWithAggregatesInput = {
 
 export type AuthenticatorCreateInput = {
   credentialID: string
-  providerAccountId: string
+  provider_account_id: string
   credentialPublicKey: string
   counter: number
   credentialDeviceType: string
   credentialBackedUp: boolean
   transports?: string | null
-  user: Prisma.UserCreateNestedOneWithoutAuthenticatorInput
+  user: Prisma.UsersCreateNestedOneWithoutAuthenticatorInput
 }
 
 export type AuthenticatorUncheckedCreateInput = {
   credentialID: string
-  userId: string
-  providerAccountId: string
+  user_id: string
+  provider_account_id: string
   credentialPublicKey: string
   counter: number
   credentialDeviceType: string
@@ -326,19 +326,19 @@ export type AuthenticatorUncheckedCreateInput = {
 
 export type AuthenticatorUpdateInput = {
   credentialID?: Prisma.StringFieldUpdateOperationsInput | string
-  providerAccountId?: Prisma.StringFieldUpdateOperationsInput | string
+  provider_account_id?: Prisma.StringFieldUpdateOperationsInput | string
   credentialPublicKey?: Prisma.StringFieldUpdateOperationsInput | string
   counter?: Prisma.IntFieldUpdateOperationsInput | number
   credentialDeviceType?: Prisma.StringFieldUpdateOperationsInput | string
   credentialBackedUp?: Prisma.BoolFieldUpdateOperationsInput | boolean
   transports?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  user?: Prisma.UserUpdateOneRequiredWithoutAuthenticatorNestedInput
+  user?: Prisma.UsersUpdateOneRequiredWithoutAuthenticatorNestedInput
 }
 
 export type AuthenticatorUncheckedUpdateInput = {
   credentialID?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
-  providerAccountId?: Prisma.StringFieldUpdateOperationsInput | string
+  user_id?: Prisma.StringFieldUpdateOperationsInput | string
+  provider_account_id?: Prisma.StringFieldUpdateOperationsInput | string
   credentialPublicKey?: Prisma.StringFieldUpdateOperationsInput | string
   counter?: Prisma.IntFieldUpdateOperationsInput | number
   credentialDeviceType?: Prisma.StringFieldUpdateOperationsInput | string
@@ -348,8 +348,8 @@ export type AuthenticatorUncheckedUpdateInput = {
 
 export type AuthenticatorCreateManyInput = {
   credentialID: string
-  userId: string
-  providerAccountId: string
+  user_id: string
+  provider_account_id: string
   credentialPublicKey: string
   counter: number
   credentialDeviceType: string
@@ -359,7 +359,7 @@ export type AuthenticatorCreateManyInput = {
 
 export type AuthenticatorUpdateManyMutationInput = {
   credentialID?: Prisma.StringFieldUpdateOperationsInput | string
-  providerAccountId?: Prisma.StringFieldUpdateOperationsInput | string
+  provider_account_id?: Prisma.StringFieldUpdateOperationsInput | string
   credentialPublicKey?: Prisma.StringFieldUpdateOperationsInput | string
   counter?: Prisma.IntFieldUpdateOperationsInput | number
   credentialDeviceType?: Prisma.StringFieldUpdateOperationsInput | string
@@ -369,8 +369,8 @@ export type AuthenticatorUpdateManyMutationInput = {
 
 export type AuthenticatorUncheckedUpdateManyInput = {
   credentialID?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
-  providerAccountId?: Prisma.StringFieldUpdateOperationsInput | string
+  user_id?: Prisma.StringFieldUpdateOperationsInput | string
+  provider_account_id?: Prisma.StringFieldUpdateOperationsInput | string
   credentialPublicKey?: Prisma.StringFieldUpdateOperationsInput | string
   counter?: Prisma.IntFieldUpdateOperationsInput | number
   credentialDeviceType?: Prisma.StringFieldUpdateOperationsInput | string
@@ -394,15 +394,15 @@ export type AuthenticatorOrderByRelevanceInput = {
   search: string
 }
 
-export type AuthenticatorUserIdCredentialIDCompoundUniqueInput = {
-  userId: string
+export type AuthenticatorUser_idCredentialIDCompoundUniqueInput = {
+  user_id: string
   credentialID: string
 }
 
 export type AuthenticatorCountOrderByAggregateInput = {
   credentialID?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  providerAccountId?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
+  provider_account_id?: Prisma.SortOrder
   credentialPublicKey?: Prisma.SortOrder
   counter?: Prisma.SortOrder
   credentialDeviceType?: Prisma.SortOrder
@@ -416,8 +416,8 @@ export type AuthenticatorAvgOrderByAggregateInput = {
 
 export type AuthenticatorMaxOrderByAggregateInput = {
   credentialID?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  providerAccountId?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
+  provider_account_id?: Prisma.SortOrder
   credentialPublicKey?: Prisma.SortOrder
   counter?: Prisma.SortOrder
   credentialDeviceType?: Prisma.SortOrder
@@ -427,8 +427,8 @@ export type AuthenticatorMaxOrderByAggregateInput = {
 
 export type AuthenticatorMinOrderByAggregateInput = {
   credentialID?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  providerAccountId?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
+  provider_account_id?: Prisma.SortOrder
   credentialPublicKey?: Prisma.SortOrder
   counter?: Prisma.SortOrder
   credentialDeviceType?: Prisma.SortOrder
@@ -496,7 +496,7 @@ export type BoolFieldUpdateOperationsInput = {
 
 export type AuthenticatorCreateWithoutUserInput = {
   credentialID: string
-  providerAccountId: string
+  provider_account_id: string
   credentialPublicKey: string
   counter: number
   credentialDeviceType: string
@@ -506,7 +506,7 @@ export type AuthenticatorCreateWithoutUserInput = {
 
 export type AuthenticatorUncheckedCreateWithoutUserInput = {
   credentialID: string
-  providerAccountId: string
+  provider_account_id: string
   credentialPublicKey: string
   counter: number
   credentialDeviceType: string
@@ -545,8 +545,8 @@ export type AuthenticatorScalarWhereInput = {
   OR?: Prisma.AuthenticatorScalarWhereInput[]
   NOT?: Prisma.AuthenticatorScalarWhereInput | Prisma.AuthenticatorScalarWhereInput[]
   credentialID?: Prisma.StringFilter<"Authenticator"> | string
-  userId?: Prisma.StringFilter<"Authenticator"> | string
-  providerAccountId?: Prisma.StringFilter<"Authenticator"> | string
+  user_id?: Prisma.StringFilter<"Authenticator"> | string
+  provider_account_id?: Prisma.StringFilter<"Authenticator"> | string
   credentialPublicKey?: Prisma.StringFilter<"Authenticator"> | string
   counter?: Prisma.IntFilter<"Authenticator"> | number
   credentialDeviceType?: Prisma.StringFilter<"Authenticator"> | string
@@ -556,7 +556,7 @@ export type AuthenticatorScalarWhereInput = {
 
 export type AuthenticatorCreateManyUserInput = {
   credentialID: string
-  providerAccountId: string
+  provider_account_id: string
   credentialPublicKey: string
   counter: number
   credentialDeviceType: string
@@ -566,7 +566,7 @@ export type AuthenticatorCreateManyUserInput = {
 
 export type AuthenticatorUpdateWithoutUserInput = {
   credentialID?: Prisma.StringFieldUpdateOperationsInput | string
-  providerAccountId?: Prisma.StringFieldUpdateOperationsInput | string
+  provider_account_id?: Prisma.StringFieldUpdateOperationsInput | string
   credentialPublicKey?: Prisma.StringFieldUpdateOperationsInput | string
   counter?: Prisma.IntFieldUpdateOperationsInput | number
   credentialDeviceType?: Prisma.StringFieldUpdateOperationsInput | string
@@ -576,7 +576,7 @@ export type AuthenticatorUpdateWithoutUserInput = {
 
 export type AuthenticatorUncheckedUpdateWithoutUserInput = {
   credentialID?: Prisma.StringFieldUpdateOperationsInput | string
-  providerAccountId?: Prisma.StringFieldUpdateOperationsInput | string
+  provider_account_id?: Prisma.StringFieldUpdateOperationsInput | string
   credentialPublicKey?: Prisma.StringFieldUpdateOperationsInput | string
   counter?: Prisma.IntFieldUpdateOperationsInput | number
   credentialDeviceType?: Prisma.StringFieldUpdateOperationsInput | string
@@ -586,7 +586,7 @@ export type AuthenticatorUncheckedUpdateWithoutUserInput = {
 
 export type AuthenticatorUncheckedUpdateManyWithoutUserInput = {
   credentialID?: Prisma.StringFieldUpdateOperationsInput | string
-  providerAccountId?: Prisma.StringFieldUpdateOperationsInput | string
+  provider_account_id?: Prisma.StringFieldUpdateOperationsInput | string
   credentialPublicKey?: Prisma.StringFieldUpdateOperationsInput | string
   counter?: Prisma.IntFieldUpdateOperationsInput | number
   credentialDeviceType?: Prisma.StringFieldUpdateOperationsInput | string
@@ -598,22 +598,22 @@ export type AuthenticatorUncheckedUpdateManyWithoutUserInput = {
 
 export type AuthenticatorSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   credentialID?: boolean
-  userId?: boolean
-  providerAccountId?: boolean
+  user_id?: boolean
+  provider_account_id?: boolean
   credentialPublicKey?: boolean
   counter?: boolean
   credentialDeviceType?: boolean
   credentialBackedUp?: boolean
   transports?: boolean
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UsersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["authenticator"]>
 
 
 
 export type AuthenticatorSelectScalar = {
   credentialID?: boolean
-  userId?: boolean
-  providerAccountId?: boolean
+  user_id?: boolean
+  provider_account_id?: boolean
   credentialPublicKey?: boolean
   counter?: boolean
   credentialDeviceType?: boolean
@@ -621,20 +621,20 @@ export type AuthenticatorSelectScalar = {
   transports?: boolean
 }
 
-export type AuthenticatorOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"credentialID" | "userId" | "providerAccountId" | "credentialPublicKey" | "counter" | "credentialDeviceType" | "credentialBackedUp" | "transports", ExtArgs["result"]["authenticator"]>
+export type AuthenticatorOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"credentialID" | "user_id" | "provider_account_id" | "credentialPublicKey" | "counter" | "credentialDeviceType" | "credentialBackedUp" | "transports", ExtArgs["result"]["authenticator"]>
 export type AuthenticatorInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UsersDefaultArgs<ExtArgs>
 }
 
 export type $AuthenticatorPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Authenticator"
   objects: {
-    user: Prisma.$UserPayload<ExtArgs>
+    user: Prisma.$UsersPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     credentialID: string
-    userId: string
-    providerAccountId: string
+    user_id: string
+    provider_account_id: string
     credentialPublicKey: string
     counter: number
     credentialDeviceType: string
@@ -980,7 +980,7 @@ readonly fields: AuthenticatorFieldRefs;
  */
 export interface Prisma__AuthenticatorClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  user<T extends Prisma.UsersDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UsersDefaultArgs<ExtArgs>>): Prisma.Prisma__UsersClient<runtime.Types.Result.GetResult<Prisma.$UsersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1011,8 +1011,8 @@ export interface Prisma__AuthenticatorClient<T, Null = never, ExtArgs extends ru
  */
 export interface AuthenticatorFieldRefs {
   readonly credentialID: Prisma.FieldRef<"Authenticator", 'String'>
-  readonly userId: Prisma.FieldRef<"Authenticator", 'String'>
-  readonly providerAccountId: Prisma.FieldRef<"Authenticator", 'String'>
+  readonly user_id: Prisma.FieldRef<"Authenticator", 'String'>
+  readonly provider_account_id: Prisma.FieldRef<"Authenticator", 'String'>
   readonly credentialPublicKey: Prisma.FieldRef<"Authenticator", 'String'>
   readonly counter: Prisma.FieldRef<"Authenticator", 'Int'>
   readonly credentialDeviceType: Prisma.FieldRef<"Authenticator", 'String'>

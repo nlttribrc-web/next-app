@@ -7,34 +7,35 @@
 datasource db {
   provider = "mysql"
 }
- 
+
 generator client {
   provider = "prisma-client"
   output   = "../src/generated/prisma"
 }
- 
-model User {
-  id            String          @id @default(cuid())
-  name          String?
-  username      String?         @unique
-  email         String?         @unique
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
+
+model Users {
+  id             String          @id @default(cuid())
+  name           String?
+  username       String?         @unique
+  email          String?         @unique
+  email_verified DateTime?
+  hashedPassword String?
+  image          String?
+  accounts       Accounts[]
+  sessions       Session[]
   // Optional for WebAuthn support
-  Authenticator Authenticator[]
- 
+  Authenticator  Authenticator[]
+
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime? @updatedAt
 }
- 
-model Account {
+
+model Accounts {
   id                       String  @id @default(cuid())
-  userId                   String  @unique
+  user_id                  String  @unique
   type                     String
   provider                 String
-  providerAccountId        String
+  provider_account_id      String
   refresh_token            String? @db.Text
   access_token             String? @db.Text
   expires_at               Int?
@@ -43,48 +44,48 @@ model Account {
   id_token                 String? @db.Text
   session_state            String?
   refresh_token_expires_in Int?
-  user                     User?   @relation(fields: [userId], references: [id])
- 
+  user                     Users?  @relation(fields: [user_id], references: [id])
+
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
- 
-  @@unique([provider, providerAccountId])
-  @@index([userId])
+  updatedAt DateTime? @updatedAt
+
+  @@unique([provider, provider_account_id])
+  @@index([user_id])
 }
- 
+
 model Session {
   id           String   @id @default(cuid())
   sessionToken String   @unique
-  userId       String
+  user_id      String
   expires      DateTime
-  user         User     @relation(fields: [userId], references: [id])
- 
+  user         Users    @relation(fields: [user_id], references: [id])
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
- 
-  @@index([userId])
+
+  @@index([user_id])
 }
- 
+
 model VerificationToken {
   identifier String
   token      String
   expires    DateTime
- 
+
   @@unique([identifier, token])
 }
- 
+
 // Optional for WebAuthn support
 model Authenticator {
   credentialID         String  @unique
-  userId               String
-  providerAccountId    String
+  user_id              String
+  provider_account_id  String
   credentialPublicKey  String
   counter              Int
   credentialDeviceType String
   credentialBackedUp   Boolean
   transports           String?
- 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
- 
-  @@id([userId, credentialID])
+
+  user Users @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@id([user_id, credentialID])
 }

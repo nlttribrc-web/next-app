@@ -51,8 +51,8 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  User: 'User',
-  Account: 'Account',
+  Users: 'Users',
+  Accounts: 'Accounts',
   Session: 'Session',
   VerificationToken: 'VerificationToken',
   Authenticator: 'Authenticator'
@@ -74,26 +74,27 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-export const UserScalarFieldEnum = {
+export const UsersScalarFieldEnum = {
   id: 'id',
   name: 'name',
   username: 'username',
   email: 'email',
-  emailVerified: 'emailVerified',
+  email_verified: 'email_verified',
+  hashedPassword: 'hashedPassword',
   image: 'image',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
 
-export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
 
 
-export const AccountScalarFieldEnum = {
+export const AccountsScalarFieldEnum = {
   id: 'id',
-  userId: 'userId',
+  user_id: 'user_id',
   type: 'type',
   provider: 'provider',
-  providerAccountId: 'providerAccountId',
+  provider_account_id: 'provider_account_id',
   refresh_token: 'refresh_token',
   access_token: 'access_token',
   expires_at: 'expires_at',
@@ -106,13 +107,13 @@ export const AccountScalarFieldEnum = {
   updatedAt: 'updatedAt'
 } as const
 
-export type AccountScalarFieldEnum = (typeof AccountScalarFieldEnum)[keyof typeof AccountScalarFieldEnum]
+export type AccountsScalarFieldEnum = (typeof AccountsScalarFieldEnum)[keyof typeof AccountsScalarFieldEnum]
 
 
 export const SessionScalarFieldEnum = {
   id: 'id',
   sessionToken: 'sessionToken',
-  userId: 'userId',
+  user_id: 'user_id',
   expires: 'expires',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -132,8 +133,8 @@ export type VerificationTokenScalarFieldEnum = (typeof VerificationTokenScalarFi
 
 export const AuthenticatorScalarFieldEnum = {
   credentialID: 'credentialID',
-  userId: 'userId',
-  providerAccountId: 'providerAccountId',
+  user_id: 'user_id',
+  provider_account_id: 'provider_account_id',
   credentialPublicKey: 'credentialPublicKey',
   counter: 'counter',
   credentialDeviceType: 'credentialDeviceType',
@@ -160,23 +161,24 @@ export const NullsOrder = {
 export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
-export const UserOrderByRelevanceFieldEnum = {
+export const UsersOrderByRelevanceFieldEnum = {
   id: 'id',
   name: 'name',
   username: 'username',
   email: 'email',
+  hashedPassword: 'hashedPassword',
   image: 'image'
 } as const
 
-export type UserOrderByRelevanceFieldEnum = (typeof UserOrderByRelevanceFieldEnum)[keyof typeof UserOrderByRelevanceFieldEnum]
+export type UsersOrderByRelevanceFieldEnum = (typeof UsersOrderByRelevanceFieldEnum)[keyof typeof UsersOrderByRelevanceFieldEnum]
 
 
-export const AccountOrderByRelevanceFieldEnum = {
+export const AccountsOrderByRelevanceFieldEnum = {
   id: 'id',
-  userId: 'userId',
+  user_id: 'user_id',
   type: 'type',
   provider: 'provider',
-  providerAccountId: 'providerAccountId',
+  provider_account_id: 'provider_account_id',
   refresh_token: 'refresh_token',
   access_token: 'access_token',
   token_type: 'token_type',
@@ -185,13 +187,13 @@ export const AccountOrderByRelevanceFieldEnum = {
   session_state: 'session_state'
 } as const
 
-export type AccountOrderByRelevanceFieldEnum = (typeof AccountOrderByRelevanceFieldEnum)[keyof typeof AccountOrderByRelevanceFieldEnum]
+export type AccountsOrderByRelevanceFieldEnum = (typeof AccountsOrderByRelevanceFieldEnum)[keyof typeof AccountsOrderByRelevanceFieldEnum]
 
 
 export const SessionOrderByRelevanceFieldEnum = {
   id: 'id',
   sessionToken: 'sessionToken',
-  userId: 'userId'
+  user_id: 'user_id'
 } as const
 
 export type SessionOrderByRelevanceFieldEnum = (typeof SessionOrderByRelevanceFieldEnum)[keyof typeof SessionOrderByRelevanceFieldEnum]
@@ -207,8 +209,8 @@ export type VerificationTokenOrderByRelevanceFieldEnum = (typeof VerificationTok
 
 export const AuthenticatorOrderByRelevanceFieldEnum = {
   credentialID: 'credentialID',
-  userId: 'userId',
-  providerAccountId: 'providerAccountId',
+  user_id: 'user_id',
+  provider_account_id: 'provider_account_id',
   credentialPublicKey: 'credentialPublicKey',
   credentialDeviceType: 'credentialDeviceType',
   transports: 'transports'
